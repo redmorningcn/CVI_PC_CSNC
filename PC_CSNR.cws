@@ -1,0 +1,395 @@
+[Workspace Header]
+Version = 1500
+Pathname = "/f/cvi/project/PC_CSNR/PC_CSNR.cws"
+CVI Dir = "/c/program files (x86)/national instruments/cvi2015"
+CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
+CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2015"
+CVI Pub Global Dir = "/C/ProgramData/National Instruments/CVI"
+IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
+IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
+VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
+VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
+Number of Projects = 1
+Active Project = 1
+Project 0001 = "PC_CSNR.prj"
+Project 0001 Folder Instrument Files Collapsed = True
+Project 0001 FolderId 10 Collapsed = True
+Drag Bar Left = 284
+Window Top = 31
+Window Left = 450
+Window Bottom = 694
+Window Right = 1224
+Maximized = True
+Maximized Children = True
+Max32 Number Of Errors = 20
+Track Include File Dependencies = True
+Prompt For Missing Includes = True
+Stop On First Error File = False
+Bring Up Err Win At Start = True
+Bring Up Err Win For Errors = False
+Save Changes Before Running = "Always"
+Save Changes Before Compiling = "Always"
+Hide Windows = False
+Break At First Statement = False
+Sort Type = "File Name"
+Number of Opened Files = 21
+Window Confinement Region Enabled = True
+MainColumnWidth = 267
+FileDateColumnWidth = 70
+FileSizeColumnWidth = 70
+
+[Project Header 0001]
+Version = 1500
+Don't Update DistKit = False
+Platform Code = 4
+Build Configuration = "Debug"
+Warn User If Debugging Release = 1
+Batch Build Release = False
+Batch Build Debug = False
+
+[File 0001]
+Path = "/c/program files (x86)/national instruments/cvi2015/toolslib/toolbox/asynctmr.fp"
+File Type = "Function Panel"
+Disk Date = 3517405200
+In Projects = "1,"
+
+[File 0002]
+Path = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.c"
+File Type = "CSource"
+Disk Date = 3586128451
+In Projects = "1,"
+Window Top = 312
+Window Left = 110
+Window Z-Order = 1
+Source Window State = "1,488,489,488,0,0,0,0,0,202,0,0,0,0,0,50,462,0,496,145,323,517,1,0,"
+
+[File 0003]
+Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.uir"
+File Type = "User Interface Resource"
+Disk Date = 3585262453
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Height = 323
+Window Width = 517
+Window Z-Order = 6
+
+[File 0004]
+Path = "/f/cvi/project/PC_CSNR/cvi/opencom/uir/comconfig.uir"
+File Type = "User Interface Resource"
+Disk Date = 3583721933
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Height = 323
+Window Width = 517
+Window Z-Order = 11
+
+[File 0005]
+Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.c"
+File Type = "CSource"
+Disk Date = 3587353815
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Z-Order = 2
+Source Window State = "1,144,144,144,16,28,28,0,0,80,0,2,0,2,0,25,46,0,72,133,323,517,1,0,"
+
+[File 0006]
+Path = "/f/cvi/project/PC_CSNR/cvi/openfile/cvi_file.c"
+File Type = "CSource"
+Disk Date = 3587353815
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Z-Order = 4
+Source Window State = "1,333,333,333,5,15,15,0,3,80,0,0,0,0,0,25,321,0,333,5,323,517,1,0,"
+
+[File 0007]
+Path = "/f/cvi/project/PC_CSNR/cvi/ipa/IAP.uir"
+File Type = "User Interface Resource"
+Disk Date = 3584997103
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Height = 323
+Window Width = 517
+Window Z-Order = 5
+
+[File 0008]
+Path = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.h"
+File Type = "Include"
+Disk Date = 3585015406
+In Projects = "1,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 15
+Source Window State = "1,124,124,124,8,18,18,0,3,80,0,0,0,0,0,25,85,0,124,8,323,517,1,0,"
+
+[File 0009]
+Path = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.c"
+File Type = "CSource"
+Disk Date = 3585366591
+In Projects = "1,"
+Window Top = 188
+Window Left = 90
+Window Z-Order = 7
+Source Window State = "1,44,44,44,32,42,42,0,3,80,0,0,0,0,0,25,12,0,44,32,323,517,1,0,"
+
+[File 0010]
+Path = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.h"
+File Type = "Include"
+Disk Date = 3585175928
+In Projects = "1,"
+Window Top = 219
+Window Left = 106
+Window Z-Order = 9
+Source Window State = "1,19,19,19,20,28,28,0,0,80,0,0,0,0,0,25,5,0,37,83,323,517,1,0,"
+
+[File 0011]
+Path = "/f/cvi/project/PC_CSNR/app/crccheck/CrcCheck.c"
+File Type = "CSource"
+Disk Date = 3530010927
+In Projects = "1,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 16
+Source Window State = "1,46,46,46,19,32,32,0,0,80,0,0,0,0,0,25,47,0,60,0,323,517,1,0,"
+
+[File 0012]
+Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/userint.h"
+File Type = "Include"
+Disk Date = 3579819176
+In Projects = ""
+Window Top = 281
+Window Left = 138
+Window Z-Order = 21
+Source Window State = "1,2486,2486,2486,12,27,27,0,3,80,0,0,0,0,0,25,2474,0,2486,12,323,517,1,0,"
+
+[File 0013]
+Path = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.c"
+File Type = "CSource"
+Disk Date = 3587353672
+In Projects = "1,"
+Window Top = 95
+Window Left = 42
+Window Z-Order = 3
+Source Window State = "1,73,74,73,0,0,0,0,0,80,0,0,0,0,0,25,54,0,74,72,323,517,1,0,"
+
+[File 0014]
+Path = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.h"
+File Type = "Include"
+Disk Date = 3585022200
+In Projects = "1,"
+Window Top = 126
+Window Left = 58
+Window Z-Order = 18
+Source Window State = "1,56,56,56,16,28,28,0,0,80,0,0,0,0,0,25,39,0,56,37,323,517,1,0,"
+
+[File 0015]
+Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/clang/3.3/stdint.h"
+File Type = "Include"
+Disk Date = 3517405200
+In Projects = ""
+Window Top = 157
+Window Left = 74
+Window Z-Order = 20
+Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,189,0,201,32,323,517,1,0,"
+
+[File 0016]
+Path = "/f/cvi/project/PC_CSNR/cvi/openfile/cvi_file.h"
+File Type = "Include"
+Disk Date = 3585024096
+In Projects = ""
+Window Top = 188
+Window Left = 90
+Window Z-Order = 19
+Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,29,0,64,0,323,517,1,0,"
+
+[File 0017]
+Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/formatio.h"
+File Type = "Include"
+Disk Date = 3542085470
+In Projects = ""
+Window Top = 219
+Window Left = 106
+Window Z-Order = 12
+Source Window State = "1,64,64,64,8,16,16,0,0,80,0,0,0,0,0,25,52,0,81,59,323,517,1,0,"
+
+[File 0018]
+Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/rs232.h"
+File Type = "Include"
+Disk Date = 3542085470
+In Projects = ""
+Window Top = 33
+Window Left = 10
+Window Z-Order = 14
+Source Window State = "1,57,57,57,12,63,63,0,0,80,0,0,0,0,0,25,51,0,65,157,323,517,1,0,"
+
+[File 0019]
+Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.h"
+File Type = "Include"
+Disk Date = 3585262454
+In Projects = "1,"
+Window Top = 312
+Window Left = 154
+Window Z-Order = 17
+Source Window State = "1,15,36,36,0,106,106,0,3,80,0,0,0,0,0,25,6,0,15,0,323,517,1,0,"
+
+[File 0020]
+Path = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.c"
+File Type = "CSource"
+Disk Date = 3586502442
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Z-Order = 8
+Source Window State = "1,132,133,132,0,0,0,0,0,80,0,0,0,0,0,25,120,0,132,66,323,517,1,0,"
+
+[File 0021]
+Path = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.h"
+File Type = "Include"
+Disk Date = 3585212039
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 10
+Source Window State = "1,55,55,55,1,11,11,0,3,80,0,0,0,0,0,25,43,0,55,1,323,517,1,0,"
+
+[File 0022]
+Path = "/f/cvi/project/IAP_PC/ndpcom.uir"
+File Type = "User Interface Resource"
+Disk Date = 3548737559
+In Projects = ""
+Window Top = 33
+Window Left = 10
+Window Height = 311
+Window Width = 517
+Window Z-Order = 13
+
+[File 0023]
+Path = "/f/cvi/project/PC_CSNR/app/crccheck/CrcCheck.h"
+File Type = "Include"
+Disk Date = 3532405953
+In Projects = "1,"
+Window Top = 157
+Window Left = 74
+Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,323,517,1,0,"
+
+[Tab Order]
+Tab 0001 = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.c"
+Tab 0002 = "/f/cvi/project/PC_CSNR/cvi/opencom/uir/comconfig.uir"
+Tab 0003 = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.uir"
+Tab 0004 = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.c"
+Tab 0005 = "/f/cvi/project/PC_CSNR/cvi/ipa/IAP.uir"
+Tab 0006 = "/f/cvi/project/PC_CSNR/cvi/openfile/cvi_file.c"
+Tab 0007 = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.h"
+Tab 0008 = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.c"
+Tab 0009 = "/c/Program Files (x86)/National Instruments/CVI2015/include/userint.h"
+Tab 0010 = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.c"
+Tab 0011 = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.h"
+Tab 0012 = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.h"
+Tab 0013 = "/f/cvi/project/PC_CSNR/app/crccheck/CrcCheck.c"
+Tab 0014 = "/c/Program Files (x86)/National Instruments/CVI2015/include/clang/3.3/stdint.h"
+Tab 0015 = "/f/cvi/project/PC_CSNR/cvi/openfile/cvi_file.h"
+Tab 0016 = "/c/Program Files (x86)/National Instruments/CVI2015/include/formatio.h"
+Tab 0017 = "/c/Program Files (x86)/National Instruments/CVI2015/include/rs232.h"
+Tab 0018 = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.c"
+Tab 0019 = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.h"
+Tab 0020 = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.h"
+Tab 0021 = "/f/cvi/project/IAP_PC/ndpcom.uir"
+
+[Default Build Config 0001 Debug]
+Generate Browse Info = True
+Enable Uninitialized Locals Runtime Warning = True
+Batch Build = False
+Profile = "Disabled"
+Debugging Level = "Standard"
+Execution Trace = "Disabled"
+Command Line Args = ""
+Working Directory = ""
+Environment Options = ""
+External Process Path = ""
+
+[Default Build Config 0001 Release]
+Generate Browse Info = True
+Enable Uninitialized Locals Runtime Warning = True
+Batch Build = False
+Profile = "Disabled"
+Debugging Level = "Standard"
+Execution Trace = "Disabled"
+Command Line Args = ""
+Working Directory = ""
+Environment Options = ""
+External Process Path = ""
+
+[Default Build Config 0001 Debug64]
+Generate Browse Info = True
+Enable Uninitialized Locals Runtime Warning = True
+Batch Build = False
+Profile = "Disabled"
+Debugging Level = "Standard"
+Execution Trace = "Disabled"
+Command Line Args = ""
+Working Directory = ""
+Environment Options = ""
+External Process Path = ""
+
+[Default Build Config 0001 Release64]
+Generate Browse Info = True
+Enable Uninitialized Locals Runtime Warning = True
+Batch Build = False
+Profile = "Disabled"
+Debugging Level = "Standard"
+Execution Trace = "Disabled"
+Command Line Args = ""
+Working Directory = ""
+Environment Options = ""
+External Process Path = ""
+
+[Build Dependencies 0001]
+Number of Dependencies = 0
+
+[Build Options 0001]
+Generate Browse Info = True
+Enable Uninitialized Locals Runtime Warning = True
+Execution Trace = "Disabled"
+Profile = "Disabled"
+Debugging Level = "Standard"
+Break On Library Errors = True
+Break On First Chance Exceptions = False
+
+[Execution Target 0001]
+Execution Target Address = "Local desktop computer"
+Execution Target Port = 0
+Execution Target Type = 0
+
+[SCC Options 0001]
+Use global settings = True
+SCC Provider = ""
+SCC Project = ""
+Local Path = ""
+Auxiliary Path = ""
+Perform Same Action For .h File As For .uir File = "Ask"
+Perform Same Action For .cds File As For .prj File = "Ask"
+Username = ""
+Comment = ""
+Use Default Username = False
+Use Default Comment = False
+Suppress CVI Error Messages = False
+Always show confirmation dialog = True
+
+[DLL Debugging Support 0001]
+External Process Path = ""
+
+[Command Line Args 0001]
+Command Line Args = ""
+Working Directory = ""
+Environment Options = ""
+
+[Watch 1]
+Watch Expression = "gsRecCsnrProtocolPara"
+
+[Watch 2]
+Watch Expression = "gsIapStart"
+

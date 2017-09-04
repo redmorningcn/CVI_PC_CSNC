@@ -1,0 +1,68 @@
+[CloseCom1]
+Class="Function"
+Prototype="void CloseCom1();"
+
+[GetCom1RecEndFlg]
+Class="Function"
+Prototype="char GetCom1RecEndFlg();"
+
+[ClearCom1RecEndFlg]
+Class="Function"
+Prototype="void ClearCom1RecEndFlg();"
+
+[ReadCom1]
+Class="Function"
+Prototype="int ReadCom1(char *buf, int len);"
+
+[SendCom1]
+Class="Function"
+Prototype="int SendCom1(char *buf, int len);"
+
+[com1TimerCallback]
+Class="Function"
+Prototype="int com1TimerCallback(int reserved, int theTimerId, int event, void *callbackData, int eventData1, int eventData2);"
+
+[Com1RecvAndSend]
+Class="Function"
+Prototype="void Com1RecvAndSend(int portNo, int eventMask, void *callbackData);"
+
+[OpenCom1Callback]
+Class="Function"
+Prototype="int OpenCom1Callback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[GetMainChildPanel]
+Class="Function"
+Prototype="int GetMainChildPanel();"
+
+[SendByteCom]
+Class="Function"
+Prototype="void SendByteCom(int port, char temp);"
+
+[InitCom1Contrl]
+Class="Function"
+Prototype="void InitCom1Contrl();"
+
+[SetCviCtrlCom1Config]
+Class="Function"
+Prototype="void SetCviCtrlCom1Config(struct _stcUartConfig_ *sUartConfig);"
+
+[ReadCom1ConfigFromFile]
+Class="Function"
+Prototype="int ReadCom1ConfigFromFile(struct _stcUartConfig_ *sUartConfig);"
+
+[WriteCom1ConfigToFile]
+Class="Function"
+Prototype="void WriteCom1ConfigToFile(struct _stcUartConfig_ *sUartConfig);"
+
+[Com1Config]
+Class="Function"
+Prototype="void Com1Config();"
+
+[Com1ConfigOkCallback]
+Class="Function"
+Prototype="int Com1ConfigOkCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[Com1PanelCB]
+Class="Function"
+Prototype="int Com1PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+

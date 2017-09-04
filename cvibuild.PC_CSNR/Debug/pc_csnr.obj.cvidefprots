@@ -1,0 +1,36 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char **argv);"
+
+[GetMainPanelHandle]
+Class="Function"
+Prototype="int GetMainPanelHandle();"
+
+[PanelCB]
+Class="Function"
+Prototype="int PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[Quit]
+Class="Function"
+Prototype="int Quit(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[SetSendFlgCallback]
+Class="Function"
+Prototype="int SetSendFlgCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[ClearTextBoxCallback]
+Class="Function"
+Prototype="int ClearTextBoxCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[SysTickCallback]
+Class="Function"
+Prototype="int SysTickCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[WriteMainPanelData_File]
+Class="Function"
+Prototype="char WriteMainPanelData_File();"
+
+[ReadMainPanelData_File]
+Class="Function"
+Prototype="int ReadMainPanelData_File();"
+

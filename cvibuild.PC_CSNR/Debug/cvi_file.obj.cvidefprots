@@ -1,0 +1,52 @@
+[BinFilePanelCB]
+Class="Function"
+Prototype="int BinFilePanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[GetMainChildBinFilePanel]
+Class="Function"
+Prototype="int GetMainChildBinFilePanel();"
+
+[OpenBinFilePanelCallback]
+Class="Function"
+Prototype="int OpenBinFilePanelCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[OpenBinFileCallback]
+Class="Function"
+Prototype="int OpenBinFileCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[GetHexFileDir]
+Class="Function"
+Prototype="int GetHexFileDir(char *filedir);"
+
+[CloseBinFile]
+Class="Function"
+Prototype="void CloseBinFile();"
+
+[ReadFileData]
+Class="Function"
+Prototype="int ReadFileData(int addr, char *buf, int reclen);"
+
+[StartFileFromHome]
+Class="Function"
+Prototype="void StartFileFromHome();"
+
+[SetFileDealPer]
+Class="Function"
+Prototype="char SetFileDealPer();"
+
+[WriteData_File]
+Class="Function"
+Prototype="char WriteData_File(int addr, char *buf, int len);"
+
+[ReadData_File]
+Class="Function"
+Prototype="int ReadData_File(int addr, char *buf, int len);"
+
+[SetProgramFlgCallback]
+Class="Function"
+Prototype="int SetProgramFlgCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[printftext]
+Class="Function"
+Prototype="void printftext(int panel, int id, const char *format, ...);"
+

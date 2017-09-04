@@ -1,0 +1,20 @@
+[SendCsnrDataDeal]
+Class="Function"
+Prototype="void SendCsnrDataDeal(char *buf, int len);"
+
+[GetSendTextBoxData]
+Class="Function"
+Prototype="int GetSendTextBoxData(unsigned char *buf);"
+
+[SendTextBox]
+Class="Function"
+Prototype="void SendTextBox();"
+
+[InitIPACtrl]
+Class="Function"
+Prototype="void InitIPACtrl();"
+
+[SendFileData]
+Class="Function"
+Prototype="void SendFileData();"
+

@@ -1,0 +1,15 @@
+CrcCheck.obj
+csnr_package_deal.obj
+cvi_com_operate.obj
+cvi_file.obj
+pc_csnr.obj
+recvdata.obj
+senddata.obj
+cvi.lib
+cvistart.lib
+asynctmr.obj
+kernel32.lib
+user32.lib
+EXE Symbol Module
+Exports Module
+Resource Module

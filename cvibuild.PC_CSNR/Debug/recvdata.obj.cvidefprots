@@ -1,0 +1,4 @@
+[RecvDeal]
+Class="Function"
+Prototype="void RecvDeal(char *buf, int len);"
+

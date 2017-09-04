@@ -1,0 +1,43 @@
+-nologo
+-out:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\PC_CSNR.exe
+-arch:x86
+-timestamp
+-debug:2
+-res:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\resources.res
+-entry:_CVIWinMainStartupCodeForDebugging@0
+-base:0x400000
+-linked:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\linkersummary.txt
+-dlldeps:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\dlldependencies.txt
+-licensing:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\linkerlicensing.txt
+-browsedeps:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\moduledependencies.txt
+-stackreserve:1048576
+-stackcommit:4096
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\CrcCheck.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\csnr_package_deal.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\cvi_com_operate.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\cvi_file.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\pc_csnr.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\recvdata.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\senddata.obj
+-more:c:\program files (x86)\national instruments\cvi2015\bin\msvc\cvistart.lib
+-more:c:\program files (x86)\national instruments\cvi2015\bin\msvc\cvi.lib
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\advapi32.lib
+-more:c:\ProgramData\National Instruments\CVI2015\bin\msvc\analysis.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\toolslib\toolbox\msvc\asynctmr.obj
+-more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\cvi_db.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cviauto.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cvidotnet.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cvinetstreams.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cvinetv.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cvintwrk.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\cvitdms.lib
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\gdi32.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\gpib.lib
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\kernel32.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\nivxi.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\bin\msvc\omp.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2015\toolslib\toolbox\msvc\toolbox.obj
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\user32.lib
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\uuid.lib
+-more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\visa.lib
+-more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\winmm.lib

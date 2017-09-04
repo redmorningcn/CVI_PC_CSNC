@@ -1,0 +1,90 @@
+CCFLAGS = -g ;
+HDRS = 	"f:\\cvi\\project\\PC_CSNR\\cvi\\opencom\\uir"
+	"f:\\cvi\\project\\PC_CSNR\\cvi\\pc_cnrs"
+	"f:\\cvi\\project\\PC_CSNR"
+	"f:\\cvi\\project\\PC_CSNR\\cvi\\ipa"
+	"f:\\cvi\\project\\PC_CSNR\\cvi\\openfile"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\activex\\word"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\activex\\excel"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\custctrl"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\custctrl\\custsupp"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\cvirtsup"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\datasock"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\daqUtil"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\printing"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\toolbox"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\reportgen"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\toolslib\\localui"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\instr"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\toolslib\\custctrl"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\toolslib\\custctrl\\custsupp"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr"
+	"C:\\ProgramData\\National Instruments\\CVI2015\\instr"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\include"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\include"
+	"C:\\ProgramData\\National Instruments\\CVI2015\\include"
+	"C:\\ProgramData\\National Instruments\\CVI\\include"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\include\\ansi"
+	"c:\\program files (x86)\\national instruments\\cvi2015\\include\\clang\\3.3"
+	"C:\\Program Files (x86)\\IVI Foundation\\IVI\\Include"
+	"C:\\Program Files (x86)\\IVI Foundation\\VISA\\winnt\\include"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\MSDTRedistributables\\SDKHeaderFiles\\8.1"
+	"c:\\Program Files (x86)\\National Instruments\\CVI2015\\bin"
+	"c:\\ProgramData\\National Instruments\\CVI2015\\bin"
+	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
+	;
+include Jamfile_instr ;
+TIMESTAMPFILE on "f:\\cvi\\project\\PC_CSNR\\cvi\\senddata\\senddata.c" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\UnsavedChanges\\senddata.c" ;
+LOCATE on "CrcCheck.c" = "f:\\cvi\\project\\PC_CSNR\\app\\crccheck" ;
+LOCATE on "CrcCheck.h" = "f:\\cvi\\project\\PC_CSNR\\app\\crccheck" ;
+LOCATE on "csnr_package_deal.c" = "f:\\cvi\\project\\PC_CSNR\\app\\csnr_package_deal" ;
+LOCATE on "csnr_package_deal.h" = "f:\\cvi\\project\\PC_CSNR\\app\\csnr_package_deal" ;
+LOCATE on "cvi_com_operate.c" = "f:\\cvi\\project\\PC_CSNR\\cvi\\opencom\\source" ;
+LOCATE on "cvi_com_operate.h" = "f:\\cvi\\project\\PC_CSNR\\cvi\\opencom\\source" ;
+LOCATE on "cvi_file.c" = "f:\\cvi\\project\\PC_CSNR\\cvi\\openfile" ;
+LOCATE on "pc_csnr.c" = "f:\\cvi\\project\\PC_CSNR\\cvi\\pc_cnrs" ;
+LOCATE on "pc_csnr.h" = "f:\\cvi\\project\\PC_CSNR\\cvi\\pc_cnrs" ;
+LOCATE on "recvdata.c" = "f:\\cvi\\project\\PC_CSNR\\cvi\\recvdata" ;
+LOCATE on "recvdata.h" = "f:\\cvi\\project\\PC_CSNR\\cvi\\recvdata" ;
+LOCATE on "senddata.c" = "f:\\cvi\\project\\PC_CSNR\\cvi\\senddata" ;
+LOCATE on "senddata.h" = "f:\\cvi\\project\\PC_CSNR\\cvi\\senddata" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj" : "f:\\cvi\\project\\PC_CSNR\\app\\crccheck\\CrcCheck.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj" = 1 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\CrcCheck.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj" : "f:\\cvi\\project\\PC_CSNR\\app\\csnr_package_deal\\csnr_package_deal.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj" = 2 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\csnr_package_deal.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj" : "f:\\cvi\\project\\PC_CSNR\\cvi\\opencom\\source\\cvi_com_operate.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj" = 3 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_com_operate.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" : "f:\\cvi\\project\\PC_CSNR\\cvi\\openfile\\cvi_file.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" = 4 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" : "f:\\cvi\\project\\PC_CSNR\\cvi\\pc_cnrs\\pc_csnr.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" = 5 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" : "f:\\cvi\\project\\PC_CSNR\\cvi\\recvdata\\recvdata.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" = 6 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" : "f:\\cvi\\project\\PC_CSNR\\cvi\\senddata\\senddata.c" ;
+FILENUM on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" = 7 ;
+DEFPROTS on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj.cvidefprots" ;
+OUTFILE on "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" = "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj.out" ;
+PrjObjects += "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" ;
+Object "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\resources.res" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\resources.in.rc" ;
+MainFromObjects "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\link_options.txt" ;
+Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\resources.res" ;
+Depends all : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" ;
