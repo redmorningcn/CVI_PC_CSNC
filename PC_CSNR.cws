@@ -12,13 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "PC_CSNR.prj"
-Project 0001 Folder Instrument Files Collapsed = True
-Project 0001 FolderId 10 Collapsed = True
-Drag Bar Left = 284
-Window Top = 31
-Window Left = 450
-Window Bottom = 694
-Window Right = 1224
+Drag Bar Left = 249
+Window Top = 167
+Window Left = 458
+Window Bottom = 791
+Window Right = 1311
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -32,9 +30,9 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 21
+Number of Opened Files = 31
 Window Confinement Region Enabled = True
-MainColumnWidth = 267
+MainColumnWidth = 232
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -56,23 +54,23 @@ In Projects = "1,"
 [File 0002]
 Path = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.c"
 File Type = "CSource"
-Disk Date = 3586128451
+Disk Date = 3587544983
 In Projects = "1,"
 Window Top = 312
 Window Left = 110
-Window Z-Order = 1
-Source Window State = "1,488,489,488,0,0,0,0,0,202,0,0,0,0,0,50,462,0,496,145,323,517,1,0,"
+Window Z-Order = 4
+Source Window State = "1,206,206,206,4,21,21,0,3,80,0,0,0,0,0,25,186,0,206,4,323,517,1,0,"
 
 [File 0003]
 Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.uir"
 File Type = "User Interface Resource"
-Disk Date = 3585262453
+Disk Date = 3587615278
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Height = 323
 Window Width = 517
-Window Z-Order = 6
+Window Z-Order = 11
 
 [File 0004]
 Path = "/f/cvi/project/PC_CSNR/cvi/opencom/uir/comconfig.uir"
@@ -83,17 +81,17 @@ Window Top = 64
 Window Left = 26
 Window Height = 323
 Window Width = 517
-Window Z-Order = 11
+Window Z-Order = 15
 
 [File 0005]
 Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.c"
 File Type = "CSource"
-Disk Date = 3587353815
+Disk Date = 3587590921
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 2
-Source Window State = "1,144,144,144,16,28,28,0,0,80,0,2,0,2,0,25,46,0,72,133,323,517,1,0,"
+Window Z-Order = 3
+Source Window State = "1,227,227,227,0,16,16,0,0,80,0,2,0,2,0,25,59,0,88,121,323,517,1,0,"
 
 [File 0006]
 Path = "/f/cvi/project/PC_CSNR/cvi/openfile/cvi_file.c"
@@ -102,8 +100,8 @@ Disk Date = 3587353815
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 4
-Source Window State = "1,333,333,333,5,15,15,0,3,80,0,0,0,0,0,25,321,0,333,5,323,517,1,0,"
+Window Z-Order = 25
+Source Window State = "1,110,111,110,0,0,0,0,3,80,0,0,0,0,0,25,105,0,110,26,323,517,1,0,"
 
 [File 0007]
 Path = "/f/cvi/project/PC_CSNR/cvi/ipa/IAP.uir"
@@ -114,7 +112,7 @@ Window Top = 64
 Window Left = 26
 Window Height = 323
 Window Width = 517
-Window Z-Order = 5
+Window Z-Order = 13
 
 [File 0008]
 Path = "/f/cvi/project/PC_CSNR/cvi/opencom/source/cvi_com_operate.h"
@@ -123,8 +121,8 @@ Disk Date = 3585015406
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 15
-Source Window State = "1,124,124,124,8,18,18,0,3,80,0,0,0,0,0,25,85,0,124,8,323,517,1,0,"
+Window Z-Order = 17
+Source Window State = "1,0,131,0,0,0,0,0,0,80,0,0,0,0,0,25,73,0,114,52,323,517,1,0,"
 
 [File 0009]
 Path = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.c"
@@ -133,8 +131,8 @@ Disk Date = 3585366591
 In Projects = "1,"
 Window Top = 188
 Window Left = 90
-Window Z-Order = 7
-Source Window State = "1,44,44,44,32,42,42,0,3,80,0,0,0,0,0,25,12,0,44,32,323,517,1,0,"
+Window Z-Order = 21
+Source Window State = "1,7,7,7,8,61,8,0,3,80,0,0,0,0,0,25,0,0,7,61,323,517,1,0,"
 
 [File 0010]
 Path = "/f/cvi/project/PC_CSNR/app/csnr_package_deal/csnr_package_deal.h"
@@ -143,8 +141,8 @@ Disk Date = 3585175928
 In Projects = "1,"
 Window Top = 219
 Window Left = 106
-Window Z-Order = 9
-Source Window State = "1,19,19,19,20,28,28,0,0,80,0,0,0,0,0,25,5,0,37,83,323,517,1,0,"
+Window Z-Order = 19
+Source Window State = "1,27,27,27,1,20,20,0,3,80,0,0,0,0,0,25,15,0,27,1,323,517,1,0,"
 
 [File 0011]
 Path = "/f/cvi/project/PC_CSNR/app/crccheck/CrcCheck.c"
@@ -153,8 +151,8 @@ Disk Date = 3530010927
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 16
-Source Window State = "1,46,46,46,19,32,32,0,0,80,0,0,0,0,0,25,47,0,60,0,323,517,1,0,"
+Window Z-Order = 6
+Source Window State = "1,46,46,46,19,32,32,0,3,80,0,0,0,0,0,25,34,0,46,19,323,517,1,0,"
 
 [File 0012]
 Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/userint.h"
@@ -163,28 +161,28 @@ Disk Date = 3579819176
 In Projects = ""
 Window Top = 281
 Window Left = 138
-Window Z-Order = 21
+Window Z-Order = 31
 Source Window State = "1,2486,2486,2486,12,27,27,0,3,80,0,0,0,0,0,25,2474,0,2486,12,323,517,1,0,"
 
 [File 0013]
 Path = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.c"
 File Type = "CSource"
-Disk Date = 3587353672
+Disk Date = 3587509671
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 3
-Source Window State = "1,73,74,73,0,0,0,0,0,80,0,0,0,0,0,25,54,0,74,72,323,517,1,0,"
+Window Z-Order = 18
+Source Window State = "1,50,50,50,0,33,33,0,3,80,0,0,0,0,0,25,63,0,50,0,323,517,1,0,"
 
 [File 0014]
 Path = "/f/cvi/project/PC_CSNR/cvi/senddata/senddata.h"
 File Type = "Include"
-Disk Date = 3585022200
+Disk Date = 3587545959
 In Projects = "1,"
 Window Top = 126
 Window Left = 58
-Window Z-Order = 18
-Source Window State = "1,56,56,56,16,28,28,0,0,80,0,0,0,0,0,25,39,0,56,37,323,517,1,0,"
+Window Z-Order = 20
+Source Window State = "1,56,56,56,16,28,28,0,0,80,0,0,0,0,0,25,27,0,51,41,323,517,1,0,"
 
 [File 0015]
 Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/clang/3.3/stdint.h"
@@ -193,7 +191,7 @@ Disk Date = 3517405200
 In Projects = ""
 Window Top = 157
 Window Left = 74
-Window Z-Order = 20
+Window Z-Order = 30
 Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,189,0,201,32,323,517,1,0,"
 
 [File 0016]
@@ -203,7 +201,7 @@ Disk Date = 3585024096
 In Projects = ""
 Window Top = 188
 Window Left = 90
-Window Z-Order = 19
+Window Z-Order = 29
 Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,29,0,64,0,323,517,1,0,"
 
 [File 0017]
@@ -213,7 +211,7 @@ Disk Date = 3542085470
 In Projects = ""
 Window Top = 219
 Window Left = 106
-Window Z-Order = 12
+Window Z-Order = 26
 Source Window State = "1,64,64,64,8,16,16,0,0,80,0,0,0,0,0,25,52,0,81,59,323,517,1,0,"
 
 [File 0018]
@@ -223,28 +221,28 @@ Disk Date = 3542085470
 In Projects = ""
 Window Top = 33
 Window Left = 10
-Window Z-Order = 14
+Window Z-Order = 28
 Source Window State = "1,57,57,57,12,63,63,0,0,80,0,0,0,0,0,25,51,0,65,157,323,517,1,0,"
 
 [File 0019]
 Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.h"
 File Type = "Include"
-Disk Date = 3585262454
+Disk Date = 3587615278
 In Projects = "1,"
 Window Top = 312
 Window Left = 154
-Window Z-Order = 17
+Window Z-Order = 14
 Source Window State = "1,15,36,36,0,106,106,0,3,80,0,0,0,0,0,25,6,0,15,0,323,517,1,0,"
 
 [File 0020]
 Path = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.c"
 File Type = "CSource"
-Disk Date = 3586502442
+Disk Date = 3587598223
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 8
-Source Window State = "1,132,133,132,0,0,0,0,0,80,0,0,0,0,0,25,120,0,132,66,323,517,1,0,"
+Window Z-Order = 16
+Source Window State = "1,110,110,110,106,112,112,0,0,80,0,0,0,0,0,25,109,0,138,64,323,517,1,0,"
 
 [File 0021]
 Path = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.h"
@@ -253,8 +251,8 @@ Disk Date = 3585212039
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 10
-Source Window State = "1,55,55,55,1,11,11,0,3,80,0,0,0,0,0,25,43,0,55,1,323,517,1,0,"
+Window Z-Order = 24
+Source Window State = "1,55,55,55,1,11,11,0,3,80,0,0,0,0,0,25,4,0,55,1,323,517,1,0,"
 
 [File 0022]
 Path = "/f/cvi/project/IAP_PC/ndpcom.uir"
@@ -265,9 +263,111 @@ Window Top = 33
 Window Left = 10
 Window Height = 311
 Window Width = 517
-Window Z-Order = 13
+Window Z-Order = 27
 
 [File 0023]
+Path = "/f/cvi/project/PC_CSNR/cvi/setpara/setpara.c"
+File Type = "CSource"
+Disk Date = 3587620928
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 2
+Source Window State = "1,200,200,200,67,79,79,0,0,80,0,236,0,236,0,20,202,0,214,24,263,517,1,0,"
+
+[File 0024]
+Path = "/f/cvi/project/PC_CSNR/cvi/setpara/setpara.h"
+File Type = "Include"
+Disk Date = 3587615904
+In Projects = "1,"
+Window Top = 126
+Window Left = 58
+Window Z-Order = 9
+Source Window State = "1,64,64,64,12,26,26,0,3,80,0,142,0,142,0,20,50,0,64,12,263,517,1,0,"
+
+[File 0025]
+Path = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.c"
+File Type = "CSource"
+Disk Date = 3587616008
+In Projects = "1,"
+Window Top = 157
+Window Left = 74
+Window Z-Order = 5
+Source Window State = "1,145,145,145,30,38,38,0,3,80,0,0,0,0,0,25,152,0,145,30,323,517,1,0,"
+
+[File 0026]
+Path = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.h"
+File Type = "Include"
+Disk Date = 3587601824
+In Projects = "1,"
+Window Top = 157
+Window Left = 74
+Window Z-Order = 10
+Source Window State = "1,34,34,34,9,31,31,0,0,80,0,0,0,0,0,20,4,0,34,1,263,517,1,0,"
+
+[File 0027]
+Path = "/f/cvi/project/PC_CSNR/includes.h"
+File Type = "Include"
+Disk Date = 3584939769
+In Projects = ""
+Window Top = 188
+Window Left = 90
+Window Z-Order = 23
+Source Window State = "1,4,4,4,23,28,28,0,0,87,0,0,0,0,0,25,0,0,12,24,323,559,1,0,"
+
+[File 0028]
+Path = "/c/Program Files (x86)/National Instruments/CVI2015/include/ansi/time.h"
+File Type = "Include"
+Disk Date = 3517405200
+In Projects = ""
+Window Top = 250
+Window Left = 122
+Window Z-Order = 22
+Source Window State = "1,67,67,67,21,27,27,0,3,87,0,0,0,0,0,25,55,0,67,21,323,559,1,0,"
+
+[File 0029]
+Path = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.uir"
+File Type = "User Interface Resource"
+Disk Date = 3587601824
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Height = 323
+Window Width = 517
+Window Z-Order = 12
+
+[File 0030]
+Path = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.c"
+File Type = "CSource"
+Disk Date = 3587623943
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 1
+Source Window State = "1,45,45,45,16,27,27,0,0,208,0,0,0,0,0,63,358,0,509,16,323,517,1,0,"
+
+[File 0031]
+Path = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.h"
+File Type = "Include"
+Disk Date = 3587617559
+In Projects = "1,"
+Window Top = 64
+Window Left = 26
+Window Z-Order = 8
+Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,24,31,0,39,57,311,517,1,0,"
+
+[File 0032]
+Path = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.uir"
+File Type = "User Interface Resource"
+Disk Date = 3587615280
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Window Height = 311
+Window Width = 517
+Window Z-Order = 7
+
+[File 0033]
 Path = "/f/cvi/project/PC_CSNR/app/crccheck/CrcCheck.h"
 File Type = "Include"
 Disk Date = 3532405953
@@ -296,8 +396,18 @@ Tab 0016 = "/c/Program Files (x86)/National Instruments/CVI2015/include/formatio
 Tab 0017 = "/c/Program Files (x86)/National Instruments/CVI2015/include/rs232.h"
 Tab 0018 = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.c"
 Tab 0019 = "/f/cvi/project/PC_CSNR/cvi/recvdata/recvdata.h"
-Tab 0020 = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.h"
-Tab 0021 = "/f/cvi/project/IAP_PC/ndpcom.uir"
+Tab 0020 = "/f/cvi/project/IAP_PC/ndpcom.uir"
+Tab 0021 = "/f/cvi/project/PC_CSNR/cvi/setpara/setpara.c"
+Tab 0022 = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.c"
+Tab 0023 = "/f/cvi/project/PC_CSNR/cvi/setpara/setpara.h"
+Tab 0024 = "/f/cvi/project/PC_CSNR/includes.h"
+Tab 0025 = "/c/Program Files (x86)/National Instruments/CVI2015/include/ansi/time.h"
+Tab 0026 = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.uir"
+Tab 0027 = "/f/cvi/project/PC_CSNR/cvi/setpara/cvi_setpara.h"
+Tab 0028 = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.uir"
+Tab 0029 = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.c"
+Tab 0030 = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.h"
+Tab 0031 = "/f/cvi/project/PC_CSNR/cvi/database/databasesample.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
@@ -388,8 +498,14 @@ Working Directory = ""
 Environment Options = ""
 
 [Watch 1]
-Watch Expression = "gsRecCsnrProtocolPara"
+Watch Expression = "gsIapStart"
 
 [Watch 2]
-Watch Expression = "gsIapStart"
+Watch Expression = "gsOilPara"
+
+[Watch 3]
+Watch Expression = "gsCalcModel"
+
+[Watch 4]
+Watch Expression = "gsCalcModel.sModPot"
 

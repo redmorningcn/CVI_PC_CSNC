@@ -22,6 +22,18 @@ Prototype="int SetSendFlgCallback(int panel, int control, int event, void *callb
 Class="Function"
 Prototype="int ClearTextBoxCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
+[CVI_COMPanelHandle]
+Class="Function"
+Prototype="void CVI_COMPanelHandle(int panel);"
+
+[CVI_SentDataHandle]
+Class="Function"
+Prototype="void CVI_SentDataHandle(int panel);"
+
+[CVI_SetParaHandle]
+Class="Function"
+Prototype="void CVI_SetParaHandle(int panel);"
+
 [SysTickCallback]
 Class="Function"
 Prototype="int SysTickCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"

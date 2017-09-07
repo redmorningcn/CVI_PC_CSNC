@@ -2,10 +2,14 @@ CrcCheck.obj
 csnr_package_deal.obj
 cvi_com_operate.obj
 cvi_file.obj
+cvi_setpara.obj
+databasesample.obj
 pc_csnr.obj
 recvdata.obj
 senddata.obj
+setpara.obj
 cvi.lib
+cvi_db.lib
 cvistart.lib
 asynctmr.obj
 kernel32.lib

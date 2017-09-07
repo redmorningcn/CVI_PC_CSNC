@@ -55,8 +55,8 @@ extern	stcFileInfo		gsBinFileInfo;
 stcCsnrProtocolPara	gsRecCsnrProtocolPara;
 
 unsigned char	Recvdatabuf[256];
-extern	int	gPanelHandle;
-extern	int	gBinFilePanelHandle;
+extern	int		gPanelHandle;
+extern	int		gBinFilePanelHandle;
 
 
 stcIapCtrl	gsIapCtrl;
@@ -104,14 +104,14 @@ void	RecvDeal(char* buf,int len)
 				
 				if(tmp16 == 1 || tmp16 == 2) 					//继续下载
 				{
-					if(tmp16 == 1)		//开始发送，启动发送
+					if(tmp16 == 1)								//开始发送，启动发送
 					{
 						gsIapCtrl.echoflg = 1;	
 						
-						memcpy((uint8 *)&gsIapStart,&gsRecCsnrProtocolPara.databuf[2],sizeof(gsIapStart));												//接收应答	
+						memcpy((uint8 *)&gsIapStart,&gsRecCsnrProtocolPara.databuf[2],sizeof(gsIapStart));	//接收应答	
 						
 						printf("\r\n启动命令，收到的序号: %d",gsIapStart.CurNum);
-						//断点续传
+																					//断点续传
 						if(
 									gsIapStart.CurNum   							//应答帧序号不为零，开始断点续传
 								&&	gsIapStart.SoftSize == gsBinFileInfo.size		//文件大小相同
@@ -136,7 +136,7 @@ void	RecvDeal(char* buf,int len)
 				} else if(tmp16 == 3 || tmp16 == 4)
 				{
 					 gsIapCtrl.endflg = 1;
-					 gSendDataFlg = 0;						 //退出发送
+					 gSendDataFlg = 0;						 	//退出发送
 				}
 				
 				if(gsRecCsnrProtocolPara.databuf[1])

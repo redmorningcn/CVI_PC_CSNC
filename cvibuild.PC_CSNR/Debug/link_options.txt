@@ -16,9 +16,12 @@
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\csnr_package_deal.obj
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\cvi_com_operate.obj
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\cvi_file.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\cvi_setpara.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\databasesample.obj
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\pc_csnr.obj
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\recvdata.obj
 -in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\senddata.obj
+-in:f:\cvi\project\PC_CSNR\cvibuild.PC_CSNR\Debug\setpara.obj
 -more:c:\program files (x86)\national instruments\cvi2015\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2015\bin\msvc\cvi.lib
 -more:C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86\advapi32.lib

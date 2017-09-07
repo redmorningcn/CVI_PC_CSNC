@@ -7,7 +7,7 @@
 #include "csnr_package_deal.h"
 #include "cvi_file.h"
 #include "senddata.h"
-
+#include "setpara.h"
 
 /********************************************************************************************/
 /* Constants										    */
@@ -227,81 +227,119 @@ int CVICALLBACK ClearTextBoxCallback (int panel, int control, int event,
 
 int   g_systime = 0; 
  
+
+/********************************************************************************************/
+/*CVI_COM_Tick_Handl串口处理句柄,和com面板及周期性事件							            */
+/********************************************************************************************/
+void CVI_COMPanelHandle(int panel)
+{
+	static	int	times = 0;
+	
+	if(times == 0)								
+	{
+		times++;
+		if(ReadCom1ConfigFromFile(&gsCom1Config))	//如串口配置文件有效，直接打开
+		{
+			Com1Config();							//配置串口
+		}
+		ReadMainPanelData_File();
+	}
+	
+	if(gsCom1Config.open == 1)	  //串口打开
+	{
+		SetCtrlAttribute (panel, PANEL_OPEN_BIN_FILE, ATTR_DIMMED, 0);
+		SetCtrlAttribute (panel, PANEL_COM1_SEND_DATA, ATTR_DIMMED, 0);
+		SetCtrlAttribute (panel, OPEN_COM1_PANEL, ATTR_LABEL_TEXT, "关闭串口");
+
+		//SetCtrlAttribute (panel, PANEL_AUTOSENDFLG, ATTR_DIMMED, 0);
+	}
+	
+	if(gsCom1Config.open == 0)	  //串口关闭
+	{
+		SetCtrlAttribute (panel, PANEL_OPEN_BIN_FILE, ATTR_DIMMED, 1);
+		SetCtrlAttribute (panel, PANEL_COM1_SEND_DATA, ATTR_DIMMED, 1);
+		SetCtrlAttribute (panel, OPEN_COM1_PANEL, ATTR_LABEL_TEXT, "打开串口");
+
+		//SetCtrlAttribute (panel, PANEL_AUTOSENDFLG, ATTR_DIMMED, 1);
+		//SetCtrlVal(panel,PANEL_AUTOSENDFLG,0);
+	}	
+}
+
+/********************************************************************************************/
+/*CVI_Set_Data_Handl串口处理句柄,串口数据相关句柄								            */
+/********************************************************************************************/
+void CVI_SentDataHandle(int panel)
+{
+	static	int	autotime = 0;
+	double	autoflg = 0;
+	int		i= 10;
+	
+	
+	GetCtrlVal (panel, PANEL_TIMER, &autoflg);	//取自动发送标示  
+
+	GetCtrlAttribute (panel, PANEL_TIMER, ATTR_INTERVAL,&autoflg );
+	
+	if( autoflg < 0.01)				//自动发送
+	{
+		if(autotime < 10 )		//10ms  
+		{
+			GetCtrlVal (panel, PANEL_DELAYMS, &autotime);
+			gSendDataFlg = 1;	//设置标示置1
+		}
+		else
+		{
+			i = 10;
+			while(i--)
+				autotime--;
+		}
+	}else
+	{
+		 autotime = 0;
+	}
+	
+////////////////////////////////////////////////////////////取协议内的值			
+	GetCtrlVal(panel,PANEL_SOURCEADDR,&gsCsnrProtocolPara.sourceaddr);	
+	GetCtrlVal(panel,PANEL_DESTADDR,&gsCsnrProtocolPara.destaddr);
+	GetCtrlVal(panel,PANEL_FRAMNUM,&gsCsnrProtocolPara.framnum);
+	GetCtrlVal(panel,PANEL_FRAMCODE,&gsCsnrProtocolPara.framcode);
+
+////////////////////////////////////////////////////////////面板参数
+	GetCtrlVal(panel,PANEL_SENDFMT,&gsmainpara.sendfmt);
+	GetCtrlVal(panel,PANEL_RECVFMT,&gsmainpara.recvfmt);
+}
+
+void	DisplayTimeOnSetPanel(void);
+/********************************************************************************************/
+/*CVI_SetPara串口参数设置相关句柄												            */
+/********************************************************************************************/
+void CVI_SetParaHandle(int panel)
+{
+	DisplayTimeOnSetPanel();
+	Com_SetParaTask();									//串口发送参数设置指令	
+}
+
+/********************************************************************************************/
+/*面板定时器程序																            */
+/********************************************************************************************/
 int CVICALLBACK SysTickCallback (int panel, int control, int event,
 								 void *callbackData, int eventData1, int eventData2)
 {
-	double	autoflg = 0;
-	static	int	times = 0;
-	int	i= 10;
+
 	switch (event)
 	{
 		case EVENT_TIMER_TICK:
-			g_systime++;
-///////////////////////////////////////////////////////////////////串口			
-			if(times == 0)								
-			{
-				times++;
-				if(ReadCom1ConfigFromFile(&gsCom1Config))	//如串口配置文件有效，直接打开
-				{
-					Com1Config();							//配置串口
-				}
-				ReadMainPanelData_File();
-			}
 			
-			if(gsCom1Config.open == 1)	  //串口打开
-			{
-				SetCtrlAttribute (panel, PANEL_OPEN_BIN_FILE, ATTR_DIMMED, 0);
-				SetCtrlAttribute (panel, PANEL_COM1_SEND_DATA, ATTR_DIMMED, 0);
-				SetCtrlAttribute (panel, OPEN_COM1_PANEL, ATTR_LABEL_TEXT, "关闭串口");
-
-				//SetCtrlAttribute (panel, PANEL_AUTOSENDFLG, ATTR_DIMMED, 0);
-			}
+			g_systime++;									   	//系统记时				
 			
-			if(gsCom1Config.open == 0)	  //串口关闭
-			{
-				SetCtrlAttribute (panel, PANEL_OPEN_BIN_FILE, ATTR_DIMMED, 1);
-				SetCtrlAttribute (panel, PANEL_COM1_SEND_DATA, ATTR_DIMMED, 1);
-				SetCtrlAttribute (panel, OPEN_COM1_PANEL, ATTR_LABEL_TEXT, "打开串口");
-
-				//SetCtrlAttribute (panel, PANEL_AUTOSENDFLG, ATTR_DIMMED, 1);
-				//SetCtrlVal(panel,PANEL_AUTOSENDFLG,0);
-			}
+///////////////////////////////////////////////////////////////////串口面板处理			
+			CVI_COMPanelHandle(panel);						
 		
-//////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////    自动发送		//	
-			static	int	autotime = 0;
-			//GetCtrlVal (panel, PANEL_AUTOSENDFLG, &autoflg);	//取自动发送标示
+//////////////////////////////////////////////////////////////////串口数据发送面板相关处理	
+			CVI_SentDataHandle(panel);
 			
-			GetCtrlVal (panel, PANEL_TIMER, &autoflg);	//取自动发送标示  
-			//GetCtrlAttribute(panel,PANEL_TIMER)
-			GetCtrlAttribute (panel, PANEL_TIMER, ATTR_INTERVAL,&autoflg );
+//////////////////////////////////////////////////////////////////串口数据发送面板相关处理	
+			CVI_SetParaHandle(panel);
 			
-			if( autoflg < 0.01)				//自动发送
-			{
-				if(autotime < 10 )		//10ms  
-				{
-					GetCtrlVal (panel, PANEL_DELAYMS, &autotime);
-					gSendDataFlg = 1;	//设置标示置1
-				}
-				else
-				{
-					i = 10;
-					while(i--)
-						autotime--;
-				}
-			}else
-			{
-				 autotime = 0;
-			}												 
-////////////////////////////////////////////////////////////取协议内的值			
-			GetCtrlVal(panel,PANEL_SOURCEADDR,&gsCsnrProtocolPara.sourceaddr);	
-			GetCtrlVal(panel,PANEL_DESTADDR,&gsCsnrProtocolPara.destaddr);
-			GetCtrlVal(panel,PANEL_FRAMNUM,&gsCsnrProtocolPara.framnum);
-			GetCtrlVal(panel,PANEL_FRAMCODE,&gsCsnrProtocolPara.framcode);
-
-//////////////////////////////////////////////////////////面板参数
-			GetCtrlVal(panel,PANEL_SENDFMT,&gsmainpara.sendfmt);
-			GetCtrlVal(panel,PANEL_RECVFMT,&gsmainpara.recvfmt);
 			break;
 	}
 	return 0;
