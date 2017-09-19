@@ -40,6 +40,9 @@
 #include "cvi_com_operate.h"
 #include "includes.h"
 #include "recvdata.h"
+#include "oilrecord.h"
+#include "senddata.h"
+
 
 
 #define		MY_ADDR				0xca
@@ -47,7 +50,6 @@
 #define     IAP_FRAME_CODE      10 
 
 extern	stcFileInfo		gsBinFileInfo;
-
 
 /********************************************************************************************/
 /* Constants																				*/
@@ -59,7 +61,7 @@ extern	int		gPanelHandle;
 extern	int		gBinFilePanelHandle;
 
 
-stcIapCtrl	gsIapCtrl;
+stcIapCtrl		gsIapCtrl;
 extern	int		gSendDataFlg;
 
 typedef struct  _stcIAPStart_
@@ -73,6 +75,38 @@ typedef struct  _stcIAPStart_
 
  
 stcIapStart gsIapStart;		//IAP下载
+
+
+/*******************************************************************************************
+
+*******************************************************************************************/
+void	RecvOilRecord(char* buf,int len)
+{
+	static	int	times = 0;
+	if(	gsRecCsnrProtocolPara.sourceaddr == 0x80   ||
+		gsRecCsnrProtocolPara.datalen 	 == 128    ||
+		gsRecvOilRecordCtrl.enableflg
+	  )										//
+	{
+		memcpy((uint8 *)&gsFlshRec,gsRecCsnrProtocolPara.databuf,sizeof(gsFlshRec));	//get-data
+		
+		if(gsRecCsnrProtocolPara.framnum != gsRecvOilRecordCtrl.recnum)
+		{
+			gsRecvOilRecordCtrl.recnum = gsRecCsnrProtocolPara.framnum;
+			gsRecvOilRecordCtrl.storeflg =1;
+		
+			SendRecordRecEcho();			//echo
+			
+			times = 0;
+		}
+		
+		if(times  > 10)					//次数超过10次，退出。
+		{
+			SendRecordRecEcho();			//echo
+		}
+		times++;
+	}
+}
 
 /*******************************************************************************************
 数据接收数据处理： RecvDeal
@@ -91,7 +125,9 @@ void	RecvDeal(char* buf,int len)
 	{
 		switch(gsRecCsnrProtocolPara.framcode)
 		{
-			case 0:
+			case 0:						//V 1.0    c
+				RecvOilRecord(gsRecCsnrProtocolPara.databuf,gsRecCsnrProtocolPara.datalen);
+				break;
 			case 1:
 			case 2:
 				break;

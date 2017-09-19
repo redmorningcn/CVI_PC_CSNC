@@ -458,7 +458,6 @@ void	Com1Config(void)
 	/* 	串口回调函数,数据区空或接受数据，执行回调函数 */
 	InstallComCallback (gsCom1Config.port, LWRS_RXCHAR | LWRS_TXEMPTY, 1, 'a' , Com1RecvAndSend, 0);
 	
-
 	gsCom1Config.open = 1;
 	WriteCom1ConfigToFile(&gsCom1Config);								//将配置信息写入文件
 	

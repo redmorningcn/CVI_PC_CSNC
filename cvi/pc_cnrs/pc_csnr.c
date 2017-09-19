@@ -8,6 +8,8 @@
 #include "cvi_file.h"
 #include "senddata.h"
 #include "setpara.h"
+#include "oilrecord.h"
+
 
 /********************************************************************************************/
 /* Constants										    */
@@ -126,7 +128,6 @@ static int CVICALLBACK ThreadFunction1 (void *functionData)
 		
 		GetCtrlVal(gPanelHandle,PANEL_COM1SENDTEXTBOX,sendbuf);			
 	
-		
 ////////////////////////////////////////////////////////////////数据发送
 		if(		
 					gsCom1Config.open == 1
@@ -318,6 +319,20 @@ void CVI_SetParaHandle(int panel)
 	Com_SetParaTask();									//串口发送参数设置指令	
 }
 
+int  InsertoilRecToDBTable (void);
+/********************************************************************************************/
+/*CVI_SetPara串口参数设置相关句柄												            */
+/********************************************************************************************/
+void CVI_DataBaseHandle(int panel)
+{
+	if(gsRecvOilRecordCtrl.storeflg == 1 && db_panelHandle)
+	{
+		gsRecvOilRecordCtrl.storeflg = 0;
+		
+		InsertoilRecToDBTable();
+	}
+}
+
 /********************************************************************************************/
 /*面板定时器程序																            */
 /********************************************************************************************/
@@ -339,6 +354,9 @@ int CVICALLBACK SysTickCallback (int panel, int control, int event,
 			
 //////////////////////////////////////////////////////////////////串口数据发送面板相关处理	
 			CVI_SetParaHandle(panel);
+			
+//////////////////////////////////////////////////////////////////串口数据发送面板相关处理	
+			CVI_DataBaseHandle(panel);
 			
 			break;
 	}
@@ -378,7 +396,6 @@ char	WriteMainPanelData_File(void)
 	GetCtrlVal(gPanelHandle,PANEL_FRAMCODE,&smainpanelpara.stccsnchead.code);
 	GetCtrlVal(gPanelHandle,PANEL_FRAMNUM,&smainpanelpara.stccsnchead.framenum);
 
-	
 	GetProjectDir (dirstring);
 	MakePathname (dirstring, MNAI_PANEL_FILE, filestring);
 	

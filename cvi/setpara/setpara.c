@@ -35,7 +35,7 @@
 #include "csnr_package_deal.h" 
 #include "cvi_com_operate.h" 
 #include "databasesample.h" 
-
+#include "setmodel.h"
 
 
 /********************************************************************************************/

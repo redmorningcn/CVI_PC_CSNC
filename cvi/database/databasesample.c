@@ -4,46 +4,27 @@
 #include <formatio.h>
 #include <cvirte.h>		
 #include <userint.h>
-#include "databasesample.h"
+#include "databasesample.h"  
+#include "setmodel.h"
+#include "oilrecord.h"
 #include "setpara.h"
 #include "CrcCheck.h"
 
 
 
 
-/*******************************************************************************
-* CONSTANTS
-*/
-
-/*******************************************************************************
-* MACROS
-*/
-//ODBC 数据源(32 位),DSN
-#define		ODBC_DNS	"MySql32"
-#define		TABLE_NAME	"oilmodeltest"
-
 
 /*******************************************************************************
 * TYPEDEFS
-*/
+*/							
+#define		TABLE_NAME				"oilmodeltest"
+#define		OILRECORD_TABLE_NAME	"busi_oil_data"
 
-typedef struct _stcModPot_						//IC 卡cd参数
-{
-	unsigned short	HigVal;						//压力值
-	unsigned short	DipVal;						//油量值
-}stcModPot;
-
-typedef struct _stcCalcModel_					
-{
-	stcModPot			sModPot[100];					// 4*100 	内容
-	unsigned short		PotNum;					// 2 		模型有效点数 
-	unsigned short		StartOil;             	// 2    	模型初始油量   	
-	unsigned short		ModelNum;				// 1		模型编号
-	//unsigned char		valid;					// 1        使用
-	unsigned short		CrcCheck;				// 2 		CrcCheck;
-}stcCalcModel;
 
 stcCalcModel	gsCalcModel;
+
+stcFlshRec		gsFlshRec;
+
 
 /***********************************************
 * 描述： 任务控制块（TCB）
@@ -58,9 +39,7 @@ stcCalcModel	gsCalcModel;
 /*******************************************************************************
 * LOCAL VARIABLES
 */
-static int cvi_hdbc_mysql_handle;			//数据库连接句柄
-static int globalvalue;
-static int db_panelHandle;
+int cvi_hdbc_mysql_handle = 0;			//数据库连接句柄
 
 /*******************************************************************************
 * GLOBAL VARIABLES
@@ -70,273 +49,18 @@ void	CloseDB(void);
 void	ChangeRecordValue(void);
 
 
-/***********************************************
-* 描述： 软定时器声明
-*/
-/********************************************************************************************/
-/*打开数据库面板																	            */
-/********************************************************************************************/
-int CVICALLBACK OpenSetModelPanelCallback (int panel, int control, int event,
-								  void *callbackData, int eventData1, int eventData2)
-{
-	switch (event)
-	{
-		case EVENT_COMMIT:
-
-			if ((db_panelHandle = LoadPanel (0, "databasesample.uir", SETM_PANEL)) < 0)
-				return -1;	
-	
-			ConnectDB();	//连接数据库
-	
-			DisplayPanel (db_panelHandle);
-
-			break;
-	}
-	
-	return 0;
-}
-
-
-/*******************************************************************************
-* 名    称： ConnectDB
-* 功    能： 连接数据库
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-05
-* 修    改：
-* 修改日期：
-* 备    注： 和数据库建立连接。ODBC 数据源(32 位)支持，提供DNS
-*******************************************************************************/
-void	ConnectDB(void)
-{
-	//建立数据库联接，并获得联接句柄
-	char	dsnbuf[64];
-	sprintf(dsnbuf,"DSN=%s",ODBC_DNS);
-	cvi_hdbc_mysql_handle = DBConnect (dsnbuf);
-}
-
-/*******************************************************************************
-* 名    称： CloseDB
-* 功    能： 连接数据库
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-05
-* 修    改：
-* 修改日期：
-* 备    注： 
-*******************************************************************************/
-void	CloseDB(void)
-{
-	//当退出应用程序时，关闭数据库连接
-	DBDisconnect (cvi_hdbc_mysql_handle); 	
-}
-
-
-/*******************************************************************************
-* 名    称： CreateDBTableMap
-* 功    能： 创建数据表映射
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-05
-* 修    改：
-* 修改日期：
-* 备    注： 
-*******************************************************************************/
-int	CreateDBTableMap(int * hmap,stcCalcModel *sCalcModel)
-{
-	long	tmp64;
-	int		i,j=0;
-	char	tmpbuf[32];
-	int 	resultcode;
-
-	DBMapColumnToShort (*hmap, "MODEL_NUM",&sCalcModel->ModelNum,&tmp64);	//油箱模型编号
-	DBMapColumnToShort (*hmap, "POT_NUM", &sCalcModel->PotNum,&tmp64);		//模型点数
-	DBMapColumnToShort (*hmap, "SET_OIL", &sCalcModel->StartOil, &tmp64);	//模型初始值
-	
-	for(i = 0;i < 100;i++)						   
-	{
-		sprintf(tmpbuf,"HIG%02d",i);
-		resultcode = DBMapColumnToShort (*hmap, tmpbuf, &sCalcModel->sModPot[i].HigVal, &tmp64);	//高度
-		
-		sprintf(tmpbuf,"OIL%02d",i);
-		resultcode = DBMapColumnToShort (*hmap, tmpbuf, &sCalcModel->sModPot[i].DipVal, &tmp64);	//油量
-	}	
-	
-	return 1;
-}
-
-/*******************************************************************************
-* 名    称： CreateDBBindColCalcModel
-* 功    能： 创建数据表绑定
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-06
-* 修    改：
-* 修改日期：
-* 备    注： 
-*******************************************************************************/
-int	CreateDBBindColCalcModel(int * hstat,stcCalcModel *sCalcModel)
-{
-	long	tmp64;
-	int		i,j=1;
-
-	j=1;
-	
-	DBBindColShort (*hstat, j++, &sCalcModel->ModelNum,&tmp64);  			//油箱模型编号 
-	DBBindColShort (*hstat, j++, &sCalcModel->PotNum,&tmp64);				//模型点数  
-	DBBindColShort (*hstat, j++, &sCalcModel->StartOil, &tmp64);			//模型初始值   
-	
-	for(i = 0;i < 100;i++)						   
-	{
-		DBBindColShort (*hstat, j++, &sCalcModel->sModPot[i].HigVal, &tmp64);	//高度
-		
-		DBBindColShort (*hstat, j++, &sCalcModel->sModPot[i].DipVal, &tmp64);	//油量
-	}	
-
-	return 1;
-}
-
-/*******************************************************************************
-* 名    称： CreateDBTable
-* 功    能： 创建数据表
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-05
-* 修    改：
-* 修改日期：
-* 备    注：DBBindColInt 
-*******************************************************************************/
-int	CreateDBTable(char *tabelname)
-{
-	int 	resultcode;
-	int 	hmap;	
- 
-	hmap = DBBeginMap (cvi_hdbc_mysql_handle); 				//创建一个数据库映射
-
-	CreateDBTableMap(&hmap,&gsCalcModel);					//创建一个数据表映射
-
-	resultcode = DBCreateTableFromMap (hmap, tabelname);	//由此映射创建一个数据表
-
-	DBDeactivateMap (hmap); 								//结束映射 
-
-	return 1;
-}
-
-/*******************************************************************************
-* 名    称： ReadRecFromDB
-* 功    能： 从数据库表中，读取数据记录
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-06
-* 修    改：
-* 修改日期：
-* 备    注： 从数据库中读取指定的数据，并返回 
-*******************************************************************************/
-int	ReadRecFromDB(char *tabelname,int	keyval)
-{
-	int 	resultcode;
-	long 	idstatus;
-	int 	idvalue;
-	int 	hstat;
-	int 	total = 0;
-	int 	i = 1;
-	char	tmpbuf[64];
-
-	DisableBreakOnLibraryErrors ();
-			
-	//激活SQL查询
-	
-	sprintf(tmpbuf,"SELECT * FROM %s WHERE MODEL_NUM = %d",tabelname,keyval);	//查找指定键值数据
-	hstat = DBActivateSQL (cvi_hdbc_mysql_handle, tmpbuf);
-
-	CreateDBBindColCalcModel(&hstat,&gsCalcModel);  							//绑定记录到相关记录的数据结构中 
-	
-	total = DBNumberOfRecords (hstat); 											//获得记录的总数
-
-	if (total > 0)
-	{
-		//取数据记录，并打印
-		//while (DBFetchNext(hstat) != DB_EOF)
-		if (DBFetchNext(hstat) != DB_EOF)    
-		{
-			printf("模型编号：%d \r\n",gsCalcModel.ModelNum);
-			printf("模型点数：%d \r\n",gsCalcModel.PotNum);
-			printf("起始油量：%d \r\n",gsCalcModel.StartOil);
-			
-			for(i = 0;i < gsCalcModel.PotNum;i++)
-			{
-				printf("高度：%4d, 油量：%4d \r\n",gsCalcModel.sModPot[i].HigVal,gsCalcModel.sModPot[i].DipVal);
-			}
-			printf("\r\n");
-			
-			gsCalcModel.CrcCheck = GetCrc16Check((uint8 *)&gsCalcModel,sizeof(gsCalcModel)-2);	//计算校验	
-			
-			l_eqiupmentcode = RUN_MODEL_PARA;								//设置为参数模型卡
-		}
-	}
-	
-	//激活关闭查询
-	DBDeactivateSQL (hstat);
-	
-	return 1;
-}
-
-/*******************************************************************************
-* 名    称： InsertRecToDB
-* 功    能： 插入数据记录
-* 入口参数： 无
-* 出口参数： 无
-* 作　 　者：redmorningcn.
-* 创建日期： 2017-09-05
-* 修    改：
-* 修改日期：
-* 备    注： 由于数据库操作，现建立映射，在赋值改写数据，再数据入库。 
-*******************************************************************************/
-int CVICALLBACK InsertRecToDB (char *tabelname,stcCalcModel *sCalcModel)
-{
-	int 	resultcode;
-	int 	hstat;
-	int 	numberofrecords;
-	int 	hmap;	
-	
-	hmap = DBBeginMap (cvi_hdbc_mysql_handle);  //创建一个数据库映射关系
-	
-	CreateDBTableMap(&hmap,sCalcModel);			//创建一个数据表映射
-
-	hstat = DBActivateMap (hmap, tabelname); 	//激活映射
-	
-	ChangeRecordValue();	  					//修改记录值 
-	
-	DBCreateRecord(hstat);  					//创建记录  
-
-	resultcode = DBPutRecord (hstat);			//更新数据库  
-			
-	resultcode = DBDeactivateMap (hmap);		//释放被激活的句柄 
-
-	return 0;
-}
-
 //读取数据，即刷新数据
 int CVICALLBACK readdata (int panel, int control, int event,
 		void *callbackData, int eventData1, int eventData2)
 {
-	int resultcode;
-	long idstatus;
-	int idvalue;
-	int hstat;
-	int total = 0;
-	int i = 1;
+	uint8 	modelnum;
+
 	switch (event)
 	{
 		case EVENT_COMMIT:
 			
-			ReadRecFromDB(TABLE_NAME,1);  	//读取数据表中的数据    
+			GetCtrlVal(panel,SETM_PANEL_MODEL_NUM, &modelnum);  //取要设置的模型编号
+			ReadRecFromDB(TABLE_NAME,modelnum);  				//读取数据表中的数据    
 
 			break;
 	}
@@ -368,12 +92,10 @@ int CVICALLBACK DataBaseQuitCallback (int panel, int control, int event,
 		case EVENT_COMMIT:
 			HidePanel (db_panelHandle);		//隐藏面板		
 			CloseDB();						//断开数据库
-			
 			break;
 	}
 	return 0;
 }
-
 
 //删除记录
 int CVICALLBACK deletedata (int panel, int control, int event,
@@ -409,7 +131,8 @@ int CVICALLBACK deletedata (int panel, int control, int event,
 			DBClosePreparedSQL (hstat);
 			
 			//刷新数据
-			readdata (panel, SETM_PANEL_CMD_READDATA, EVENT_COMMIT, NULL, 0, 0);    
+			readdata (panel, SETM_PANEL_CMD_READDATA, EVENT_COMMIT, NULL, 0, 0); 
+			
 			break;
 	}
 	return 0;
@@ -426,12 +149,22 @@ int CVICALLBACK insertdata (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			
-			InsertRecToDB(TABLE_NAME,&gsCalcModel);
-
+			//InsertRecToDB(TABLE_NAME,&gsCalcModel);
+			InsertoilRecToDB(OILRECORD_TABLE_NAME,&gsFlshRec);
+			
+			
 			break;
 	}
 	return 0;
 }
+
+//修改记录
+int  InsertoilRecToDBTable (void)
+{
+	InsertoilRecToDB(OILRECORD_TABLE_NAME,&gsFlshRec);
+	return 1;
+}
+
 
 //修改记录
 int CVICALLBACK modifydata (int panel, int control, int event,
@@ -544,7 +277,6 @@ int CVICALLBACK deletetable (int panel, int control, int event,
 				
 				//删除数据表
 				DBImmediateSQL (cvi_hdbc_mysql_handle, "DROP TABLE table1");
-				 
 			}
 			
 			DeleteTableRows (db_panelHandle, SETM_PANEL_TABLE, 1, -1);
@@ -569,10 +301,10 @@ int CVICALLBACK tableCB (int panel, int control, int event,
 			
 			//获得活动表格当前的行与列
 			GetActiveTableCell (db_panelHandle, SETM_PANEL_TABLE, &colrow);
-			
+		
 			//获得本行一列中数据的ID号
 			GetTableCellVal (db_panelHandle, SETM_PANEL_TABLE, MakePoint(1, colrow.y), &value);
-			
+		
 			//将ID号作为全局变量处理
 			globalvalue = value;	
 			break;
@@ -580,24 +312,29 @@ int CVICALLBACK tableCB (int panel, int control, int event,
 	return 0;
 }
 
-//保存到数据库时，赋值操作
-void	ChangeRecordValue(void)
+int CVICALLBACK RecvOilCallBack (int panel, int control, int event,
+								 void *callbackData, int eventData1, int eventData2)
 {
-	gsCalcModel.ModelNum++;
-	gsCalcModel.PotNum = 3;
-	
-	gsCalcModel.sModPot[0].HigVal = 0;
-	gsCalcModel.sModPot[0].DipVal = 1200;
-	
-	gsCalcModel.sModPot[1].HigVal = 1558;
-	gsCalcModel.sModPot[1].DipVal = 3400;
-	
-	gsCalcModel.sModPot[2].HigVal = 7529;
-	gsCalcModel.sModPot[2].DipVal = 9000;
-	
-	for(int i = 3;i<100;i++)
+	static	int	status = 0;
+	switch (event)
 	{
-		gsCalcModel.sModPot[i].HigVal = 7529;
-		gsCalcModel.sModPot[i].DipVal = 9000;
+		case EVENT_COMMIT:
+
+			if(status == 0 )
+			{
+				status = 1;
+				gsRecvOilRecordCtrl.enableflg = 1;
+				SetCtrlAttribute (db_panelHandle, SETM_PANEL_RECV_OIL, ATTR_LABEL_TEXT, "stop recv"); 
+
+			}else
+			{
+				status = 0;	
+				gsRecvOilRecordCtrl.enableflg = 0;
+				SetCtrlAttribute (db_panelHandle, SETM_PANEL_RECV_OIL, ATTR_LABEL_TEXT, "contiue recv"); 
+			}
+			break;
 	}
+	return 0;
 }
+
+

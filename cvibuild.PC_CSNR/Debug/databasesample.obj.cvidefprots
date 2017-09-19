@@ -1,35 +1,3 @@
-[OpenSetModelPanelCallback]
-Class="Function"
-Prototype="int OpenSetModelPanelCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-
-[ConnectDB]
-Class="Function"
-Prototype="void ConnectDB();"
-
-[CloseDB]
-Class="Function"
-Prototype="void CloseDB();"
-
-[CreateDBTableMap]
-Class="Function"
-Prototype="int CreateDBTableMap(int *hmap, struct _stcCalcModel_ *sCalcModel);"
-
-[CreateDBBindColCalcModel]
-Class="Function"
-Prototype="int CreateDBBindColCalcModel(int *hstat, struct _stcCalcModel_ *sCalcModel);"
-
-[CreateDBTable]
-Class="Function"
-Prototype="int CreateDBTable(char *tabelname);"
-
-[ReadRecFromDB]
-Class="Function"
-Prototype="int ReadRecFromDB(char *tabelname, int keyval);"
-
-[InsertRecToDB]
-Class="Function"
-Prototype="int InsertRecToDB(char *tabelname, struct _stcCalcModel_ *sCalcModel);"
-
 [readdata]
 Class="Function"
 Prototype="int readdata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
@@ -50,6 +18,10 @@ Prototype="int deletedata(int panel, int control, int event, void *callbackData,
 Class="Function"
 Prototype="int insertdata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
+[InsertoilRecToDBTable]
+Class="Function"
+Prototype="int InsertoilRecToDBTable();"
+
 [modifydata]
 Class="Function"
 Prototype="int modifydata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
@@ -62,7 +34,7 @@ Prototype="int deletetable(int panel, int control, int event, void *callbackData
 Class="Function"
 Prototype="int tableCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
-[ChangeRecordValue]
+[RecvOilCallBack]
 Class="Function"
-Prototype="void ChangeRecordValue();"
+Prototype="int RecvOilCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 

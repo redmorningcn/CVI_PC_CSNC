@@ -54,6 +54,33 @@ extern	int	gPanelHandle;
 extern	int	gBinFilePanelHandle;
 void printftext(int	panel,int id,const char *format, ...) ;
 
+#define		MY_ADDR				0xca
+
+/*******************************************************************************************
+数据发送： SendCsnrDataDeal
+将数据按照协议格式发送。
+格式的值  	系统运行时自动更改。
+*******************************************************************************************/
+void	SendRecordRecEcho(void)
+{
+	
+	 stcCsnrProtocolPara	sCsnrProtocolPara;
+
+//////////////////////////////////////////////////////////
+	 sCsnrProtocolPara.databuf 		=  senddatabuf;		//发送指针赋值	
+	 sCsnrProtocolPara.rxtxbuf 		=  txdatabuf;
+	 sCsnrProtocolPara.sourceaddr 	=  MY_ADDR;
+	 sCsnrProtocolPara.destaddr 	=  0x80; 
+ 	 sCsnrProtocolPara.framcode 	=  gsRecCsnrProtocolPara.framcode;
+ 	 sCsnrProtocolPara.framnum  	=  gsRecCsnrProtocolPara.framnum;
+	 
+	 sCsnrProtocolPara.datalen = 0;
+ 
+	 DataPackage_CSNC(&sCsnrProtocolPara);			//按协议打包
+ 
+	 SendCom1(sCsnrProtocolPara.rxtxbuf,sCsnrProtocolPara.rxtxlen);  //从串发送数据
+}
+
 /*******************************************************************************************
 数据发送： SendCsnrDataDeal
 将数据按照协议格式发送。

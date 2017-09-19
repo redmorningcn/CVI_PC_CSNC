@@ -32,7 +32,9 @@
 #include <userint.h>
 #include <formatio.h> 
 #include <comconfig.h>         
-#include "pc_csnr.h"    
+#include "pc_csnr.h"   
+#include "csnr_package_deal.h"    
+
 
 /********************************************************************************************/
 /* Constants																					*/
@@ -61,6 +63,7 @@ typedef	struct	_stcIapCtrl_
 /********************************************************************************************/
 //串口结构体及通讯
 
+extern	stcCsnrProtocolPara	gsRecCsnrProtocolPara;
 
 
 /*******************************************************************************

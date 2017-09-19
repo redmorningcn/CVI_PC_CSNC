@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 25
+Number of Files = 29
 Target Type = "Executable"
 Flags = 2064
 Copied From Locked InstrDrv Directory = False
@@ -333,6 +333,56 @@ File Type = "CSource"
 Res Id = 23
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "cvi/database/oilrecord.c"
+Path = "/f/cvi/project/PC_CSNR/cvi/database/oilrecord.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files/source/cvi_database"
+Folder Id = 10
+
+[File 0024]
+File Type = "Include"
+Res Id = 24
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "cvi/database/oilrecord.h"
+Path = "/f/cvi/project/PC_CSNR/cvi/database/oilrecord.h"
+Exclude = False
+Project Flags = 0
+Folder = "Source Files/source/cvi_database"
+Folder Id = 10
+
+[File 0025]
+File Type = "CSource"
+Res Id = 25
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "cvi/database/setmodel.c"
+Path = "/f/cvi/project/PC_CSNR/cvi/database/setmodel.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files/source/cvi_database"
+Folder Id = 10
+
+[File 0026]
+File Type = "Include"
+Res Id = 26
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "cvi/database/setmodel.h"
+Path = "/f/cvi/project/PC_CSNR/cvi/database/setmodel.h"
+Exclude = False
+Project Flags = 0
+Folder = "Source Files/source/cvi_database"
+Folder Id = 10
+
+[File 0027]
+File Type = "CSource"
+Res Id = 27
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "cvi/pc_cnrs/pc_csnr.c"
 Path = "/f/cvi/project/PC_CSNR/cvi/pc_cnrs/pc_csnr.c"
 Exclude = False
@@ -341,9 +391,9 @@ Project Flags = 0
 Folder = "Source Files"
 Folder Id = 1
 
-[File 0024]
+[File 0028]
 File Type = "Include"
-Res Id = 24
+Res Id = 28
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "cvi/pc_cnrs/pc_csnr.h"
@@ -353,9 +403,9 @@ Project Flags = 0
 Folder = "Include Files"
 Folder Id = 11
 
-[File 0025]
+[File 0029]
 File Type = "Function Panel"
-Res Id = 25
+Res Id = 29
 Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI"

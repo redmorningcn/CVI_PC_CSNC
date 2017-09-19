@@ -4,9 +4,11 @@ Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_file.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\cvi_setpara.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\databasesample.obj" ;
+Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\oilrecord.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\pc_csnr.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\recvdata.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\senddata.obj" ;
+Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\setmodel.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\setpara.obj" ;
 Depends "f:\\cvi\\project\\PC_CSNR\\cvibuild.PC_CSNR\\Debug\\PC_CSNR.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;
 NoCare "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;

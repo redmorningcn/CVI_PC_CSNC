@@ -1,3 +1,7 @@
+[SendRecordRecEcho]
+Class="Function"
+Prototype="void SendRecordRecEcho();"
+
 [SendCsnrDataDeal]
 Class="Function"
 Prototype="void SendCsnrDataDeal(char *buf, int len);"

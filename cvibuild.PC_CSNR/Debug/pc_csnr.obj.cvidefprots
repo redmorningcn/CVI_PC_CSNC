@@ -34,6 +34,10 @@ Prototype="void CVI_SentDataHandle(int panel);"
 Class="Function"
 Prototype="void CVI_SetParaHandle(int panel);"
 
+[CVI_DataBaseHandle]
+Class="Function"
+Prototype="void CVI_DataBaseHandle(int panel);"
+
 [SysTickCallback]
 Class="Function"
 Prototype="int SysTickCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"

@@ -1,3 +1,7 @@
+[RecvOilRecord]
+Class="Function"
+Prototype="void RecvOilRecord(char *buf, int len);"
+
 [RecvDeal]
 Class="Function"
 Prototype="void RecvDeal(char *buf, int len);"

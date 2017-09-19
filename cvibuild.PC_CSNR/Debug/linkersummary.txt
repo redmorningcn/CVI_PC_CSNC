@@ -4,9 +4,11 @@ cvi_com_operate.obj
 cvi_file.obj
 cvi_setpara.obj
 databasesample.obj
+oilrecord.obj
 pc_csnr.obj
 recvdata.obj
 senddata.obj
+setmodel.obj
 setpara.obj
 cvi.lib
 cvi_db.lib
