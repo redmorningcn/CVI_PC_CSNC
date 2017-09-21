@@ -56,6 +56,9 @@ void printftext(int	panel,int id,const char *format, ...) ;
 
 #define		MY_ADDR				0xca
 
+//打印发送信息
+//#define		SEND_PRINTF	    1
+
 /*******************************************************************************************
 数据发送： SendCsnrDataDeal
 将数据按照协议格式发送。
@@ -81,6 +84,43 @@ void	SendRecordRecEcho(void)
 	 SendCom1(sCsnrProtocolPara.rxtxbuf,sCsnrProtocolPara.rxtxlen);  //从串发送数据
 }
 
+
+#define		DATA_CARD			0x0001				//êy?Y?¨
+#define		IC_ADDR				0xc1
+
+void DataComReadAsk(unsigned int startnum,unsigned int endnum)
+{
+	uint32	datalen;
+	uint32	cardflg;
+	unsigned char  buf[32];
+	stcCsnrProtocolPara	sCsnrProtocolPara;
+
+	datalen = 0;
+
+	cardflg = DATA_CARD;
+
+	memcpy(&buf[datalen],(unsigned char *)&cardflg,sizeof(cardflg));
+	datalen += sizeof(cardflg);
+	memcpy(&buf[datalen],(unsigned char *)&startnum,sizeof(startnum));
+	datalen += sizeof(startnum); 
+	memcpy(&buf[datalen],(unsigned char *)&endnum,sizeof(endnum));
+	datalen += sizeof(endnum);
+
+//////////////////////////////////////////////////////////
+	sCsnrProtocolPara.databuf 		=  buf;					//发送指针赋值	
+	sCsnrProtocolPara.rxtxbuf 		=  txdatabuf;
+	sCsnrProtocolPara.sourceaddr 	=  IC_ADDR;
+	sCsnrProtocolPara.destaddr 		=  0x80; 
+	sCsnrProtocolPara.framcode 		=  gsRecCsnrProtocolPara.framcode;
+	sCsnrProtocolPara.framnum  		=  gsRecCsnrProtocolPara.framnum;
+	 
+	 sCsnrProtocolPara.datalen 		= datalen;
+ 
+	 DataPackage_CSNC(&sCsnrProtocolPara);			//按协议打包
+ 
+	 SendCom1(sCsnrProtocolPara.rxtxbuf,sCsnrProtocolPara.rxtxlen);  //从串发送数据
+}
+
 /*******************************************************************************************
 数据发送： SendCsnrDataDeal
 将数据按照协议格式发送。
@@ -100,12 +140,14 @@ void	SendCsnrDataDeal(char *buf,int len)
 	 
 	 SendCom1(gsCsnrProtocolPara.rxtxbuf,gsCsnrProtocolPara.rxtxlen);  //从串发送数据
 	 
+	 
+#ifdef	SEND_PRINTF	 
 	for (i = 0 ;i < gsCsnrProtocolPara.rxtxlen; i++)
 	{
 		printftext(gBinFilePanelHandle,IAP_PANEL_INFOTEXTBOX,"%02X",gsCsnrProtocolPara.rxtxbuf[i]);	 
 	}
 	printftext(gBinFilePanelHandle,IAP_PANEL_INFOTEXTBOX,"\r\n");	 
-
+#endif
 } 	
 
 

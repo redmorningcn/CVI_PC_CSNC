@@ -2,6 +2,10 @@
 Class="Function"
 Prototype="void SendRecordRecEcho();"
 
+[DataComReadAsk]
+Class="Function"
+Prototype="void DataComReadAsk(unsigned int startnum, unsigned int endnum);"
+
 [SendCsnrDataDeal]
 Class="Function"
 Prototype="void SendCsnrDataDeal(char *buf, int len);"

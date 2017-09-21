@@ -350,3 +350,6 @@ void printftext(int	panel,int id,const char *format, ...)
    
    SetCtrlVal(panel,id,a);
 }
+
+
+

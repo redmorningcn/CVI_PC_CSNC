@@ -46,9 +46,13 @@
 
 
 #define		MY_ADDR				0xca
+#define		IC_ADDR				0xc1
+
 //IAP 下载帧控制字
 #define     IAP_FRAME_CODE      10 
 
+//
+//打印发送信息
 extern	stcFileInfo		gsBinFileInfo;
 
 /********************************************************************************************/
@@ -83,8 +87,8 @@ stcIapStart gsIapStart;		//IAP下载
 void	RecvOilRecord(char* buf,int len)
 {
 	static	int	times = 0;
-	if(	gsRecCsnrProtocolPara.sourceaddr == 0x80   ||
-		gsRecCsnrProtocolPara.datalen 	 == 128    ||
+	if(	gsRecCsnrProtocolPara.sourceaddr == 0x80   &&
+		gsRecCsnrProtocolPara.datalen 	 == 128    &&
 		gsRecvOilRecordCtrl.enableflg
 	  )										//
 	{
@@ -106,6 +110,63 @@ void	RecvOilRecord(char* buf,int len)
 		}
 		times++;
 	}
+}
+
+void DataComReadAsk(unsigned int startnum,unsigned int endnum);
+void	storerectofile(uint8* buf,int len);
+/*******************************************************************************************
+
+*******************************************************************************************/
+void	ICRecvOilRecord(char* buf,int len)
+{
+	static	int	times = 0;
+	int		tmp32;
+	
+	stcTinyRec	sTinyRec;
+	
+	//收到数据
+	if(	gsRecCsnrProtocolPara.sourceaddr == 0x80   &&
+		gsRecCsnrProtocolPara.datalen 	 == sizeof(stcTinyRec)     
+	  )										//
+	{
+		memcpy((uint8 *)&sTinyRec,gsRecCsnrProtocolPara.databuf,sizeof(sTinyRec));	//get-data
+	
+		gsRecvOilRecordCtrl.currecnum = sTinyRec.CurRecNum;								//当前帧序号赋值 
+		
+		if(	
+			gsRecvOilRecordCtrl.ICflg == 1 && 										//查询数据有效，发送请求数据指令
+			gsRecvOilRecordCtrl.ICreadnum < gsRecvOilRecordCtrl.currecnum  &&
+			gsRecvOilRecordCtrl.ICreadnum	
+		  	)											
+		{
+			tmp32 = gsRecvOilRecordCtrl.currecnum - gsRecvOilRecordCtrl.ICreadnum;
+			DataComReadAsk(tmp32,tmp32+1);											//请求数据
+		}	
+
+	}
+	
+	//收到查询
+	if(	gsRecCsnrProtocolPara.sourceaddr == 0x80   &&
+		gsRecCsnrProtocolPara.datalen 	 == sizeof(gsFlshRec)    
+	  )										//
+	{
+		if(	
+			gsRecvOilRecordCtrl.ICflg == 1 && 											//查询数据有效，发送请求数据指令
+			gsRecvOilRecordCtrl.ICreadnum < gsRecvOilRecordCtrl.currecnum &&
+			gsRecvOilRecordCtrl.ICreadnum
+		  	)											
+		{
+			memcpy((uint8 *)&gsFlshRec,gsRecCsnrProtocolPara.databuf,sizeof(gsFlshRec));	//get-data
+		
+			storerectofile((uint8 *)&gsFlshRec,sizeof(gsFlshRec));							//把数据记录保存到文件
+		
+			gsRecvOilRecordCtrl.ICreadnum--;												//完成1条数据接收，减1	
+			
+			tmp32 = gsRecvOilRecordCtrl.currecnum - gsRecvOilRecordCtrl.ICreadnum;
+			DataComReadAsk(tmp32,tmp32+1);												//请求数据
+		}	
+
+	}	
 }
 
 /*******************************************************************************************
@@ -181,6 +242,11 @@ void	RecvDeal(char* buf,int len)
 				break;
 			default:;
 		}
+	}
+	
+	if(gsRecCsnrProtocolPara.destaddr == IC_ADDR)				//IC卡通讯
+	{
+		ICRecvOilRecord(gsRecCsnrProtocolPara.databuf,gsRecCsnrProtocolPara.datalen);
 	}
 	return;
 }

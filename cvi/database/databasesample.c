@@ -149,8 +149,8 @@ int CVICALLBACK insertdata (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			
-			//InsertRecToDB(TABLE_NAME,&gsCalcModel);
-			InsertoilRecToDB(OILRECORD_TABLE_NAME,&gsFlshRec);
+			InsertRecToDB(TABLE_NAME,&gsCalcModel);
+			//InsertoilRecToDB(OILRECORD_TABLE_NAME,&gsFlshRec);
 			
 			
 			break;
@@ -338,3 +338,31 @@ int CVICALLBACK RecvOilCallBack (int panel, int control, int event,
 }
 
 
+int CVICALLBACK ICRecvOilCallBack (int panel, int control, int event,
+								   void *callbackData, int eventData1, int eventData2)
+{
+	static	int	status = 0;
+
+	switch (event)
+	{
+		case EVENT_COMMIT:
+
+			if(status == 0 )
+			{
+				status = 1;
+				gsRecvOilRecordCtrl.ICflg = 1;
+				SetCtrlAttribute (db_panelHandle, SETM_PANEL_RECV_OIL_2, ATTR_LABEL_TEXT, "stop recv"); 
+				gsRecvOilRecordCtrl.ICstorefile[0] = '\0';
+				GetCtrlVal(db_panelHandle,SETM_PANEL_ICREAD_NUM,&gsRecvOilRecordCtrl.ICreadnum);
+
+			}else
+			{
+				status = 0;	
+				gsRecvOilRecordCtrl.ICflg = 0;
+				SetCtrlAttribute (db_panelHandle, SETM_PANEL_RECV_OIL_2, ATTR_LABEL_TEXT, "contiue recv");
+				
+			}
+			break;
+	}
+	return 0;
+}

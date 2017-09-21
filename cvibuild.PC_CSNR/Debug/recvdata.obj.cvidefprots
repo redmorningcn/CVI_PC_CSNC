@@ -2,6 +2,10 @@
 Class="Function"
 Prototype="void RecvOilRecord(char *buf, int len);"
 
+[ICRecvOilRecord]
+Class="Function"
+Prototype="void ICRecvOilRecord(char *buf, int len);"
+
 [RecvDeal]
 Class="Function"
 Prototype="void RecvDeal(char *buf, int len);"

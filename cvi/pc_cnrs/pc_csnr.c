@@ -9,6 +9,7 @@
 #include "senddata.h"
 #include "setpara.h"
 #include "oilrecord.h"
+#include "databasesample.h"
 
 
 /********************************************************************************************/
@@ -17,6 +18,8 @@
 //uir文件名
 #define		UIR_MAIN_NAME			"pc_csnr.uir"
 
+//打印接收信息
+//#define		RECV_PRINTF	    1
 
 
 /********************************************************************************************/
@@ -110,7 +113,8 @@ static int CVICALLBACK ThreadFunction1 (void *functionData)
 			if(reclen < sizeof(recbuf))
 				recbuf[reclen] = '\0';			//添加结束标示	
 			
-			if(gsmainpara.recvfmt == 1)
+#ifdef	 RECV_PRINTF
+			if(gsmainpara.recvfmt == 1)			//打印接收
 			{
 				for(int i = 0;i < reclen;i++)  
 				{
@@ -121,6 +125,8 @@ static int CVICALLBACK ThreadFunction1 (void *functionData)
 				SetCtrlVal(gPanelHandle,PANEL_INFOTEXTBOX,recbuf);   	//读取数据区的内容
 				SetCtrlVal(gPanelHandle,PANEL_INFOTEXTBOX,"\r\n");   	//接收到的数据换行处理
 			}
+#endif			
+			
 			
 			RecvDeal(recbuf,reclen);										//接收数据处理
 			//InsertTextBoxLine (gPanelHandle, PANEL_COM1RECVTEXTBOX,-1, recbuf);
@@ -330,6 +336,12 @@ void CVI_DataBaseHandle(int panel)
 		gsRecvOilRecordCtrl.storeflg = 0;
 		
 		InsertoilRecToDBTable();
+	}
+	
+	if(db_panelHandle && gsRecvOilRecordCtrl.ICflg == 1)
+	{
+		SetCtrlVal(db_panelHandle,SETM_PANEL_CUR_NUM,gsRecvOilRecordCtrl.currecnum);
+		SetCtrlVal(db_panelHandle,SETM_PANEL_ICREAD_NUM,gsRecvOilRecordCtrl.ICreadnum);
 	}
 }
 

@@ -38,3 +38,7 @@ Prototype="int tableCB(int panel, int control, int event, void *callbackData, in
 Class="Function"
 Prototype="int RecvOilCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
+[ICRecvOilCallBack]
+Class="Function"
+Prototype="int ICRecvOilCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+

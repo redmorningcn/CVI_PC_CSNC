@@ -17,15 +17,18 @@
 #define  SETM_PANEL_TABLE                 2       /* control type: table, callback function: tableCB */
 #define  SETM_PANEL_CMD_MODIFY            3       /* control type: command, callback function: modifydata */
 #define  SETM_PANEL_CMD_INSERT            4       /* control type: command, callback function: insertdata */
-#define  SETM_PANEL_RECV_OIL              5       /* control type: command, callback function: RecvOilCallBack */
-#define  SETM_PANEL_CMD_READDATA          6       /* control type: command, callback function: readdata */
-#define  SETM_PANEL_QUITBUTTON            7       /* control type: command, callback function: DataBaseQuitCallback */
-#define  SETM_PANEL_DECORATION_2          8       /* control type: deco, callback function: (none) */
-#define  SETM_PANEL_TEXTMSG_2             9       /* control type: textMsg, callback function: (none) */
-#define  SETM_PANEL_TEXTMSG_3             10      /* control type: textMsg, callback function: (none) */
-#define  SETM_PANEL_DECORATION_3          11      /* control type: deco, callback function: (none) */
-#define  SETM_PANEL_MODEL_NUM             12      /* control type: ring, callback function: (none) */
-#define  SETM_PANEL_TEXTMSG               13      /* control type: textMsg, callback function: (none) */
+#define  SETM_PANEL_RECV_OIL_2            5       /* control type: command, callback function: ICRecvOilCallBack */
+#define  SETM_PANEL_RECV_OIL              6       /* control type: command, callback function: RecvOilCallBack */
+#define  SETM_PANEL_CMD_READDATA          7       /* control type: command, callback function: readdata */
+#define  SETM_PANEL_QUITBUTTON            8       /* control type: command, callback function: DataBaseQuitCallback */
+#define  SETM_PANEL_DECORATION_2          9       /* control type: deco, callback function: (none) */
+#define  SETM_PANEL_TEXTMSG_2             10      /* control type: textMsg, callback function: (none) */
+#define  SETM_PANEL_TEXTMSG_3             11      /* control type: textMsg, callback function: (none) */
+#define  SETM_PANEL_DECORATION_3          12      /* control type: deco, callback function: (none) */
+#define  SETM_PANEL_MODEL_NUM             13      /* control type: ring, callback function: (none) */
+#define  SETM_PANEL_TEXTMSG               14      /* control type: textMsg, callback function: (none) */
+#define  SETM_PANEL_CUR_NUM               15      /* control type: numeric, callback function: (none) */
+#define  SETM_PANEL_ICREAD_NUM            16      /* control type: numeric, callback function: (none) */
 
 
      /* Control Arrays: */
@@ -41,6 +44,7 @@
      /* Callback Prototypes: */
 
 int  CVICALLBACK DataBaseQuitCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
+int  CVICALLBACK ICRecvOilCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK insertdata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK modifydata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK readdata(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
